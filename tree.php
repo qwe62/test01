@@ -30,4 +30,14 @@ array('ID'=>27, 'PARENT_ID' => 19, 'NAME'=> 'Пункт 3.1.1',),
 array('ID'=>28, 'PARENT_ID' => 19, 'NAME'=> 'Пункт 3.1.2',),
 array('ID'=>1, 'PARENT_ID' => 20, 'NAME'=> 'Пункт 3.2.1',),
 array('ID'=>30, 'PARENT_ID' => 1, 'NAME'=> 'Пункт 3.2.1.1'));
+
+function buildTree (array $data, $pid=0){
+  $arr=array();
+  
+  foreach ($data as &$data) {
+    if ($data['PARENT_ID'] == $pid) {
+      $child = buildTree ($data, $data['ID']);
+      
+      if ($child) {
+        $data[']
 ?>
